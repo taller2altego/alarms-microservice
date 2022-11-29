@@ -41,6 +41,7 @@ if __name__ == '__main__':
                     res = json.loads(msg.value().decode())
                     stat.incr(res['metricName'])
                     print('logged metric')
+
                 except Exception:
                     print('failed processing metric')
 
