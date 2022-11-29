@@ -3,9 +3,7 @@ COPY . /app
 WORKDIR /app
 RUN apt-get update
 RUN apt-get install -qy build-essential wget gettext-base
-RUN apt-get install -qy python3.6 python3.6-dev python3.6-venv python3-distutils
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3.6 get-pip.py
+RUN apt-get install -qy python3.8 python3.8-dev python3.8-venv python3-distutils
 RUN apt-get install libssl-dev librdkafka-dev
 RUN pip install -r requirements.txt
-RUN python3.6 consumer.py
+RUN python3.8 consumer.py
