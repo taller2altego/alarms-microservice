@@ -1,1 +1,1 @@
-web: python gettingstarted.consumer
+web: python gettingstarted.consumer.py
