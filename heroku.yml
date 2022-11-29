@@ -4,4 +4,4 @@ build:
 release:
   image: worker
   command:
-    - python3.8 app/consumer.py
+    - python3.8 consumer.py
