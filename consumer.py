@@ -1,9 +1,12 @@
+#!/usr/bin/env python
+import os
 import sys
 import json
 import statsd
 from confluent_kafka import Consumer, KafkaException, KafkaError
 
 if __name__ == '__main__':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gettingstarted.settings")
     topics = ['oqgbz3ul-metrics', 'oqgbz3ul-default']
 
     conf = {
