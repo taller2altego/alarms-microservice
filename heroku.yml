@@ -1,7 +1,8 @@
 build:
   docker:
     worker: Dockerfile
-release:
-  image: worker
-  command:
-    - python3.8 consumer.py
+run:
+  consumer:
+    command:
+      - python3.8 consumer.py
+    image: worker
