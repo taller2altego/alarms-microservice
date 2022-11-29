@@ -10,5 +10,5 @@ RUN apt-get install -qy python3.8 python3.8-dev python3.8-venv python3-distutils
 
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.8 get-pip.py
-RUN sudo pip install -r requirements.txt
+RUN pip install -r requirements.txt
 RUN python3.8 consumer.py
