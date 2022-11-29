@@ -8,4 +8,4 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.6 get-pip.py
 RUN apt-get install libssl-dev librdkafka-dev
 RUN pip install -r requirements.txt
-RUN python3.6 -c "import nltk; nltk.download('punkt', download_dir='/usr/nltk_data')"
+RUN python3.6 consumer.py
