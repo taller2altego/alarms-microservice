@@ -6,6 +6,7 @@ import statsd
 from confluent_kafka import Consumer, KafkaException, KafkaError
 
 if __name__ == '__main__':
+    print('Start metrics microservice')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gettingstarted.settings")
     topics = ['oqgbz3ul-metrics', 'oqgbz3ul-default']
 
@@ -39,8 +40,9 @@ if __name__ == '__main__':
                 try:
                     res = json.loads(msg.value().decode())
                     stat.incr(res['metricName'])
+                    print('logged metric')
                 except Exception:
-                    print('fallo')
+                    print('failed processing metric')
 
     except KeyboardInterrupt:
         sys.stderr.write('%% Aborted by user\n')
