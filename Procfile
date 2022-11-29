@@ -1,1 +1,1 @@
-web: python gettingstarted.consumer
+web: gunicorn gettingstarted.wsgi
