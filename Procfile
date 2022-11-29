@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.consumer
+web: python gettingstarted.consumer
