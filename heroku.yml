@@ -3,4 +3,4 @@ build:
     worker: Dockerfile
 
 run:
-  web: python3.8 consumer.py
+  worker: python3.8 consumer.py
