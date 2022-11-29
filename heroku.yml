@@ -2,7 +2,5 @@ build:
   docker:
     worker: Dockerfile
 run:
-  consumer:
-    command:
-      - python3.8 consumer.py
-    image: worker
+  worker: /bin/bash -c python3.8 consumer.py
+
