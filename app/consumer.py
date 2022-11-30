@@ -5,7 +5,6 @@ import json
 import statsd
 from confluent_kafka import Consumer, KafkaException, KafkaError
 import requests
-
 if __name__ == '__main__':
     print('Start metrics microservice')
     r = requests.get('https://altego-fiuber-apigateway.herokuapp.com/')
