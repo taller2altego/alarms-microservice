@@ -12,4 +12,5 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.8 get-pip.py
 RUN pip install -r requirements.txt
 
+
 CMD ["python3.8", "app/consumer.py"]
