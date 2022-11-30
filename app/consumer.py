@@ -4,9 +4,12 @@ import sys
 import json
 import statsd
 from confluent_kafka import Consumer, KafkaException, KafkaError
+import requests
 
 if __name__ == '__main__':
     print('Start metrics microservice')
+    r = requests.get('https://altego-fiuber-apigateway.herokuapp.com/')
+
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gettingstarted.settings")
     topics = ['oqgbz3ul-metrics', 'oqgbz3ul-default']
 
@@ -31,7 +34,6 @@ if __name__ == '__main__':
             if msg is None:
                 continue
             if msg.error():
-                
                 if msg.error().code() == KafkaError._PARTITION_EOF:
                     sys.stderr.write('%% %s [%d] reached end at offset %d\n' % (msg.topic(), msg.partition(), msg.offset()))
                 elif msg.error():
@@ -41,7 +43,6 @@ if __name__ == '__main__':
                     res = json.loads(msg.value().decode())
                     stat.incr(res['metricName'])
                     print('logged metric')
-
                 except Exception:
                     print('failed processing metric')
 
