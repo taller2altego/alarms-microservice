@@ -2,9 +2,10 @@
 import os
 import sys
 import json
-import statsd
-from confluent_kafka import Consumer, KafkaException, KafkaError
 import requests
+from confluent_kafka import Consumer, KafkaException, KafkaError
+from datadog import initialize, statsd
+
 if __name__ == '__main__':
     print('Start metrics microservice')
     r = requests.get('https://altego-fiuber-apigateway.herokuapp.com/')
@@ -25,7 +26,12 @@ if __name__ == '__main__':
 
     c = Consumer(**conf)
     c.subscribe(topics)
-    stat = statsd.StatsClient('localhost', 8125)
+
+    options = {
+        'statsd_host':'127.0.0.1',
+        'statsd_port':8125
+    }
+    initialize(**options)
 
     try:
         while True:
@@ -40,7 +46,7 @@ if __name__ == '__main__':
             else:
                 try:
                     res = json.loads(msg.value().decode())
-                    stat.incr(res['metricName'])
+                    statsd.increment(res['metricName'])
                     print('logged metric')
                 except Exception:
                     print('failed processing metric')
