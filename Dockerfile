@@ -17,7 +17,7 @@ RUN curl -o /tmp/DATADOG_APT_KEY_F14F620E.public "${DATADOG_APT_KEYS_URL}/DATADO
 RUN curl -o /tmp/DATADOG_APT_KEY_382E94DE.public "${DATADOG_APT_KEYS_URL}/DATADOG_APT_KEY_382E94DE.public" && gpg --ignore-time-conflict --no-default-keyring --keyring ${DATADOG_APT_KEYRING} --import /tmp/DATADOG_APT_KEY_382E94DE.public
 
 # Install the Datadog agent
-RUN apt-get -y --force-yes install --reinstall datadog-agent
+RUN apt-get -y --allow install --reinstall datadog-agent
 
 # python dependencies
 RUN wget https://bootstrap.pypa.io/get-pip.py
