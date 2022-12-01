@@ -46,7 +46,11 @@ if __name__ == '__main__':
             else:
                 try:
                     res = json.loads(msg.value().decode())
-                    statsd.increment(res['metricName'])
+                    
+                    metricName = res['metricName']
+                    print(metricName)
+                    
+                    statsd.increment(metricName)
                     print('logged metric')
                 except Exception:
                     print('failed processing metric')
