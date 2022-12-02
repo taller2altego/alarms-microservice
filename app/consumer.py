@@ -46,7 +46,6 @@ if __name__ == '__main__':
             else:
                 try:
                     res = json.loads(msg.value().decode())
-                    
                     metricName = res['metricName']
                     print(metricName)
                     
