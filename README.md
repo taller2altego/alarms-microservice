@@ -1,5 +1,5 @@
 #  Metrics Microservice Fiuber
-[![codecov](https://codecov.io/github/taller2altego/identity-service/branch/main/graph/badge.svg?token=D7FDPQ58NM)](https://codecov.io/github/taller2altego/identity-service)
+
 
 ### Construido con:
 
@@ -27,7 +27,7 @@ Clonar el repositorio e instalar paquetes:
     $ git clone git@github.com:taller2altego/alarms-microservice.git
     $ pip install -r requirements.txt
 
-Levantar el servicio con Docker local:
+Levantar el servicio local:
 
     $ python3.8 app/consumer.py
 
